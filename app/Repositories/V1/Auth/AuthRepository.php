@@ -18,13 +18,9 @@ class AuthRepository implements AuthRepositoryInterface
         return $user;
     }
 
-    public function verifyEmailOTP(int $userId): User
+    public function emailLogin(string $email): User
     {
-
-    }
-
-    public function login(array $data): User
-    {
-
+        $user = User::where('email', $email)->first();
+        return $user;
     }
 }

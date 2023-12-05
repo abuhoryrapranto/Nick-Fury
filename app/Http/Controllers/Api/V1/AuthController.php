@@ -8,6 +8,7 @@ use Illuminate\Http\Response;
 
 use App\Services\V1\AuthService;
 use App\Http\Requests\V1\RegisterRequest;
+use App\Http\Requests\V1\EmailLoginRequest;
 
 class AuthController extends Controller
 {
@@ -19,5 +20,10 @@ class AuthController extends Controller
     public function register(RegisterRequest $request): Response
     {
         return $this->authService->register($request->validated());
+    }
+
+    public function emailLogin(EmailLoginRequest $request): Response
+    {
+        return $this->authService->emailLogin($request->validated());
     }
 }
